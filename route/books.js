@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const filmsDal = require('../services/films.dal')
+const booksDal = require('../services/books.dal')
 
 router.get('/',async(req,res)=>{
     try {
-        let Films = await filmsDal.getFilms();
-        if(DEBUG) console.table(Films);
-        res.render('films',{Films})
+        let books = await booksDal.getBooks();
+        if(DEBUG) console.table(books);
+        res.render('books',{books})
     } catch {
         res.render('503')
     }

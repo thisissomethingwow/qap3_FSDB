@@ -10,8 +10,8 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true, })); 
 app.use(methodOverride('_method')); 
 
-const filmsRouter = require('./route/films')
-app.use('/',filmsRouter)
+const booksRouter = require('./route/books')
+app.use('/',booksRouter)
 
 
 
