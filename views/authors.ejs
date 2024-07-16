@@ -1,0 +1,15 @@
+<html lang="en">
+    <body>
+        <div class>
+            <form action="/authors" method="POST">
+                <b>authors: </b></br> 
+            <% if (authors.length > 0) { %>
+                <% authors.forEach(authors => { %>
+                    <b><%= authors.fn %> <%= authors.ln %></b>
+                    <a href="/authors/<%=authors._id%>/edit?firstName=<%=authors.first_name%>&lastName=<%=authors.desc%>">edit</a>
+                    <a href="/authors/<%=authors._id%>/delete?firstName=<%=authors.first_name%>&lastName=<%=authors.desc%>">delete</a>
+                    <a href="/authors/<%=authors._id%>/replace?firstName=<%=authors.first_name%>&lastName=<%=authors.desc%>">replace</a></br> 
+                    <% }) %>
+            <% } %>
+    </body>
+</html>
