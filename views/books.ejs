@@ -1,0 +1,15 @@
+<html lang="en">
+    <body>
+        <div class>
+            <form action="/books" method="POST">
+                <b>books: </b></br> 
+            <% if (books.length > 0) { %>
+                <% books.forEach(books => { %>
+                    <b><%= books.title %> <%= books.desc %></b>
+                    <!-- <a href="/books/<%=books._id%>/edit?firstName=<%=books.first_name%>&lastName=<%=books.desc%>">edit</a>
+                    <a href="/books/<%=books._id%>/delete?firstName=<%=books.first_name%>&lastName=<%=books.desc%>">delete</a>
+                    <a href="/books/<%=books._id%>/replace?firstName=<%=books.first_name%>&lastName=<%=books.desc%>">replace</a></br>  -->
+                    <% }) %>
+            <% } %>
+    </body>
+</html>
