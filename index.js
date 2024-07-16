@@ -10,8 +10,17 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true, })); 
 app.use(methodOverride('_method')); 
 
+
+app.get('/', (req, res) => {
+    res.render('index.ejs');
+});
+
 const booksRouter = require('./route/books')
-app.use('/',booksRouter)
+app.use('/books',booksRouter)
+
+const authorRouter = require('./route/author')
+app.use('/authors',authorRouter)
+
 
 
 
