@@ -12,4 +12,16 @@ router.get('/',async(req,res)=>{
     }
 })
 
+router.post('/',async(req,res)=>{
+    if(DEBUG) console.log("we be posting");
+    try {
+        await authorsDal.addAuthors(req.body.fn, req.body.ln)
+        if(DEBUG) console.log("done add");
+        res.redirect('/authors/')
+    } catch {
+        res.render('503')
+    }
+})
+
+
 module.exports = router
