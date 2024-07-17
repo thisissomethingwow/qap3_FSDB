@@ -1,0 +1,12 @@
+<html lang="en">
+    <body>
+        <div>
+            <form action="/authors/<%= locals.theId %>?_method=DELETE" method="POST">
+                <label>del?</br>
+                    <input type="text" id="<%= locals.theId %>" name="authors" value="<%= locals.fn %> <%= locals.ln %>" readonly>
+                </label>
+                <button>DELETE</button>
+            </form>
+        </div>
+    </body>
+</html>

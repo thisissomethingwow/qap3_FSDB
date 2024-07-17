@@ -6,9 +6,9 @@
             <% if (authors.length > 0) { %>
                 <% authors.forEach(authors => { %>
                     <b><%= authors.fn %> <%= authors.ln %></b>
-                    <a href="/authors/<%=authors._id%>/edit?fn=<%=authors.first_name%>&ln=<%=authors.last_name%>">edit</a>
-                    <a href="/authors/<%=authors._id%>/delete?fn=<%=authors.first_name%>&ln=<%=authors.last_name%>">delete</a>
-                    <a href="/authors/<%=authors._id%>/replace?fn=<%=authors.first_name%>&ln=<%=authors.last_name%>">replace</a></br> 
+                    <a href="/authors/<%=authors._id%>/edit?fn=<%=authors.fn%>&ln=<%=authors.ln%>">edit</a>
+                    <a href="/authors/<%=authors._id%>/delete?fn=<%=authors.fn%>&ln=<%=authors.ln%>">delete</a>
+                    <a href="/authors/<%=authors._id%>/replace?fn=<%=authors.fn%>&ln=<%=authors.ln%>">replace</a></br> 
                     <% }) %>
             <% } %>
             <br>
