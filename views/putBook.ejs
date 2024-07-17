@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div>
+        <form action="/books/<%= locals.theId %>?_method=PUT" method="POST">
+            <label> replace title:
+                <input type="text" name="title" value="<%= locals.title %>" required>
+                <input type="text" name="desc" value="<%= locals.desc %>" required>
+            </label>
+            <button>PUT</button>
+        </form>
+    </div>
+</body>
+</html>
