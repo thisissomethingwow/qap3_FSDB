@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div>
+        <form action="/books/<%= locals.theId %>?_method=PATCH" method="POST">
+        <label>edit books:
+        <input type="text" name="title" value="<%= locals.title %>" required>
+        <input type="text" name="desc" value="<%= locals.desc %>" required>
+    </label>
+    <button>PATCH</button>
+    </form>
+    </div>
+</body>
+</html>

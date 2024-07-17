@@ -6,10 +6,22 @@
             <% if (books.length > 0) { %>
                 <% books.forEach(books => { %>
                     <b><%= books.title %> <%= books.desc %></b>
-                    <a href="/books/<%=books._id%>/edit?firstName=<%=books.title%>&lastName=<%=books.desc%>">edit</a>
-                    <a href="/books/<%=books._id%>/delete?firstName=<%=books.title%>&lastName=<%=books.desc%>">delete</a>
-                    <a href="/books/<%=books._id%>/replace?firstName=<%=books.title%>&lastName=<%=books.desc%>">replace</a></br> 
+                    <a href="/books/<%=books._id%>/edit?title=<%=books.title%>&desc=<%=books.desc%>">edit</a>
+                    <a href="/books/<%=books._id%>/delete?title=<%=books.title%>&desc=<%=books.desc%>">delete</a>
+                    <a href="/books/<%=books._id%>/replace?title=<%=books.title%>&desc=<%=books.desc%>">replace</a></br> 
                     <% }) %>
             <% } %>
+            <br>
+            <label>Add books</label>
+            <br>
+
+            <label>book title:
+                <input type="text" id="title" name="title" value="<%= locals.title  %>" required>
+            </label><br>
+            <label>book desc:
+                <input type="text" id="desc" name="desc" value="<%= locals.desc  %>" required>
+            </label>
+            <br>
+            <button>POST</button>
     </body>
 </html>
