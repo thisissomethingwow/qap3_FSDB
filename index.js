@@ -22,7 +22,8 @@ const authorRouter = require('./route/author')
 app.use('/authors',authorRouter)
 
 
-
+const apiRouter = require('./route/api/index.api')
+app.use('/api',apiRouter)
 
 
 app.listen(PORT,()=>{
