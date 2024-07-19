@@ -16,6 +16,21 @@ dal.query(sql,[],(err,result)=>{
 }) 
 }
 
+const getBooksById = (id)=>{
+    if(DEBUG) console.log("get by id with books")
+    return new Promise(function(resolve,reject){
+        const sql = "SELECT book_id AS _id, book_title AS title, book_description AS desc FROM books WHERE book_id = $1";
+dal.query(sql,[id],(err,result)=>{
+    if(err){
+        if(DEBUG)console.log(err)
+        reject(err)
+    }else{
+        resolve(result.rows)
+    }
+})
+}) 
+}
+
 const addBooks = (title,desc)=>{
     if(DEBUG) console.log("we add books")
     return new Promise(function(resolve,reject){
@@ -79,6 +94,7 @@ const delBooks = (id)=>{
 
 module.exports={
     getBooks,
+    getBooksById,
     addBooks,
     putBooks,
     patchBooks,
