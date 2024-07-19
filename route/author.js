@@ -12,15 +12,7 @@ router.get('/',async(req,res)=>{
     }
 })
 
-// router.get('/:id',async (req,res)=>{
-//     try {
-//         const anAuthor = await authorsDal.getAuthorsById(req.params.id
-        
-//         )
-//     } catch{
-//         res.render("503")
-//     }
-// })
+
 
 
 router.post('/',async(req,res)=>{
