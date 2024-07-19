@@ -43,7 +43,6 @@ dal.query(sql,[fn,ln],(err,result)=>{
         reject(err)
     }else{
         resolve(result.rows)
-        return
     }
     })
   }) 
