@@ -6,7 +6,7 @@
                 <b>Books: </b></br> 
             <% if (books.length > 0) { %>
                 <% books.forEach(books => { %>
-                    <b><%= books.title %> <%= books.desc %></b>
+                    <b><%= books.title %>: <%= books.desc %></b>
                     <a href="/books/<%=books._id%>/edit?title=<%=books.title%>&desc=<%=books.desc%>">Edit</a>
                     <a href="/books/<%=books._id%>/delete?title=<%=books.title%>&desc=<%=books.desc%>">Delete</a>
                     <a href="/books/<%=books._id%>/replace?title=<%=books.title%>&desc=<%=books.desc%>">Replace</a></br> 

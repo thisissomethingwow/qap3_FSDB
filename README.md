@@ -20,7 +20,7 @@ curl -X GET http://localhost:3000/api/authors/
 curl -d "fn=your&ln=name" -X POST http://localhost:3000/api/authors
 ```
 ```bash
-curl -d "fn=new&fn=name" -X PUT http://localhost:3000/api/authors/id
+curl -d "fn=new&ln=name" -X PUT http://localhost:3000/api/authors/id
 ```
 ```bash
 curl -d "fn=new&ln=name" -X PATCH http://localhost:3000/api/authors/id
