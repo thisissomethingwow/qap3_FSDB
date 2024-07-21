@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+     <style>
+        body{
+   text-align: center;
+   background-color: aqua;
+}
+     </style>
 <body>
     <div>
         <form action="/authors/<%= locals.theId %>?_method=PUT" method="POST">
-            <label> replace names:
+            <label> Replace Names:
                 <input type="text" name="fn" value="<%= locals.fn %>" required>
                 <input type="text" name="ln" value="<%= locals.ln %>" required>
             </label>

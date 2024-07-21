@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        body{
+   text-align: center;
+   background-color: aqua;
+}
+     </style>
 <body>
     <div>
         <form action="/books/<%= locals.theId %>?_method=PATCH" method="POST">
-        <label>edit books:
+        <label>Edit Books:
         <input type="text" name="title" value="<%= locals.title %>" required>
         <input type="text" name="desc" value="<%= locals.desc %>" required>
     </label>
