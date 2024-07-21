@@ -1,9 +1,9 @@
-const dal = require("../../services/auth");
-const { getAuthors, getAuthorsById, addAuthors, putAuthors, patchAuthors, delAuthors }  = require('../../services/authors.dal')
+const dal = require("../services/auth");
+const { getBooks, getBooksById, addBooks, putBooks, patchBooks, delBooks }  = require('../services/books.dal')
 global.DEBUG = false;
 
 
-jest.mock('../../services/auth', () => ({
+jest.mock('../services/auth', () => ({
     query: jest.fn(),
 }));
 
@@ -12,98 +12,95 @@ describe('Auth Functions', () => {
         jest.clearAllMocks();
     });
 
-    test('getAuthors should return authors', async () => {
-        const mockResult = { rows: [{ _id: 1, fn: 'John', ln: 'Doe' }] };
+    test('getBooks should return books', async () => {
+        const mockResult = { rows: [{ _id: 1, title: 'dune', desc: 'sand' }] };
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
-        const result = await getAuthors();
+        const result = await getBooks();
         expect(result).toEqual(mockResult.rows);
     });
 
-    test('getAuthors should handle errors', async () => {
+    test('getBooks should handle errors', async () => {
         const mockError = new Error('Database error');
         dal.query.mockImplementation((sql, params, callback) => callback(mockError, null));
         
-        await expect(getAuthors()).rejects.toThrow('Database error');
+        await expect(getBooks()).rejects.toThrow('Database error');
     });
 
-    test('getAuthorsById should return author by ID', async () => {
-        const mockResult = { rows: [{ _id: 1, fn: 'John', ln: 'Doe' }] };
+    test('getBooksById should return books by ID', async () => {
+        const mockResult = { rows: [{ _id: 1, title: 'dune', desc: 'sand' }] };
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
-        const result = await getAuthorsById(1);
+        const result = await getBooksById(1);
         expect(result).toEqual(mockResult.rows);
     });
 
-    test('getAuthorsById should handle errors', async () => {
+    test('getBooksById should handle errors', async () => {
         const mockError = new Error('Database error');
         dal.query.mockImplementation((sql, params, callback) => callback(mockError, null));
         
-        await expect(getAuthorsById(1)).rejects.toThrow('Database error');
+        await expect(getBooksById(1)).rejects.toThrow('Database error');
     });
 
-    test('addAuthors should add a new author', async () => {
+    test('addBooks should add a new book', async () => {
         const mockResult = { rows: [] }; // Typically, INSERT returns an empty result
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
-        const result = await addAuthors('Jane', 'Doe');
+        const result = await addBooks('book', 'cool');
         expect(result).toEqual(mockResult.rows);
     });
 
-    test('addAuthors should handle errors', async () => {
+    test('addBooks should handle errors', async () => {
         const mockError = new Error('Database error');
         dal.query.mockImplementation((sql, params, callback) => callback(mockError, null));
         
-        await expect(addAuthors('Jane', 'Doe')).rejects.toThrow('Database error');
+        await expect(addBooks('book', 'cool')).rejects.toThrow('Database error');
     });
 
-    test('putAuthors should update an author', async () => {
+    test('putBookss should update an book', async () => {
         const mockResult = { rows: [] };
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
-        const result = await putAuthors(1, 'Jane', 'Doe');
+        const result = await putBooks(1, 'dune2', 'sand2');
         expect(result).toEqual(mockResult.rows);
     });
 
-    test('putAuthors should handle errors', async () => {
+    test('putBooks should handle errors', async () => {
         const mockError = new Error('Database error');
         dal.query.mockImplementation((sql, params, callback) => callback(mockError, null));
         
-        await expect(putAuthors(1, 'Jane', 'Doe')).rejects.toThrow('Database error');
+        await expect(putBooks(1, 'Jane', 'Doe')).rejects.toThrow('Database error');
     });
 
-    test('patchAuthors should update an author', async () => {
+    test('patchBooks should update an book', async () => {
         const mockResult = { rows: [] };
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
-        const result = await patchAuthors(1, 'Jane', 'Doe');
+        const result = await patchBooks(1, 'dune3', 'sand3');
         expect(result).toEqual(mockResult.rows);
     });
 
-    test('patchAuthors should handle errors', async () => {
+    test('patchBooks should handle errors', async () => {
         const mockError = new Error('Database error');
         dal.query.mockImplementation((sql, params, callback) => callback(mockError, null));
         
-        await expect(patchAuthors(1, 'Jane', 'Doe')).rejects.toThrow('Database error');
+        await expect(patchBooks(1, 'dune4', 'sand4')).rejects.toThrow('Database error');
     });
 
-    test('delAuthors should delete an author', async () => {
+    test('delBookss should delete an book', async () => {
         const mockResult = { rows: [] };
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
-        const result = await delAuthors(1);
+        const result = await delBooks(1);
         expect(result).toEqual(mockResult.rows);
     });
 
-    test('delAuthors should handle errors', async () => {
+    test('delBooks should handle errors', async () => {
         const mockError = new Error('Database error');
         dal.query.mockImplementation((sql, params, callback) => callback(mockError, null));
         
-        await expect(delAuthors(1)).rejects.toThrow('Database error');
+        await expect(delBooks(1)).rejects.toThrow('Database error');
     });
 });
 
 
-// const dal = require("../../services/auth");
-// const { getAuthors, getAuthorsById, addAuthors } = require('../../services/authors.dal')
-// global.DEBUG = false;
