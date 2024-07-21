@@ -1,8 +1,14 @@
 <html lang="en">
+    <style>
+        body{
+   text-align: center;
+   background-color: aqua;
+}
+     </style>
     <body>
         <div>
             <form action="/books/<%= locals.theId %>?_method=DELETE" method="POST">
-                <label>del?</br>
+                <label>Delete?</br>
                     <input type="text" id="<%= locals.theId %>" name="books" value="<%= locals.title %> <%= locals.desc %>" readonly>
                 </label>
                 <button>DELETE</button>

@@ -17,7 +17,7 @@ router.post('/',async(req,res)=>{
     try {
         await booksDal.addBooks(req.body.title, req.body.desc)
         if(DEBUG) console.log("done add in books");
-        res.redirect('/books/')
+        res.redirect('/books')
     } catch {
         res.render('503')
     }
@@ -42,7 +42,7 @@ router.put('/:id',async(req,res)=>{
     if(DEBUG)console.log("this is put in books");
     try {
         await booksDal.putBooks(req.params.id,req.body.title, req.body.desc)
-        res.redirect('/books/')
+        res.redirect('/books')
     } catch{
         res.render('503')
     }
@@ -53,7 +53,7 @@ router.patch('/:id',async(req,res)=>{
     if(DEBUG)console.log("this is patch in books");
     try {
         await booksDal.patchBooks(req.params.id,req.body.title, req.body.desc)
-        res.redirect('/books/')
+        res.redirect('/books')
     } catch{
         res.render('503')
     }
@@ -63,7 +63,7 @@ router.delete('/:id',async(req,res)=>{
     if(DEBUG)console.log("this is del in books");
     try {
         await booksDal.delBooks(req.params.id)
-        res.redirect('/books/')
+        res.redirect('/books')
     } catch{
         res.render('503')
     }

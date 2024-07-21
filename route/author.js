@@ -20,7 +20,7 @@ router.post('/',async(req,res)=>{
     try {
         await authorsDal.addAuthors(req.body.fn, req.body.ln)
         if(DEBUG) console.log("done add");
-        res.redirect('/authors/')
+        res.redirect('/authors')
     } catch {
         res.render('503')
     }
@@ -47,7 +47,7 @@ router.put('/:id',async(req,res)=>{
     if(DEBUG)console.log("this is put");
     try {
         await authorsDal.putAuthors(req.params.id,req.body.fn, req.body.ln)
-        res.redirect('/authors/')
+        res.redirect('/authors')
     } catch{
         res.render('503')
     }
@@ -58,7 +58,7 @@ router.patch('/:id',async(req,res)=>{
     if(DEBUG)console.log("this is patch");
     try {
         await authorsDal.patchAuthors(req.params.id,req.body.fn, req.body.ln)
-        res.redirect('/authors/')
+        res.redirect('/authors')
     } catch{
         res.render('503')
     }
@@ -68,7 +68,7 @@ router.delete('/:id',async(req,res)=>{
     if(DEBUG)console.log("this is del");
     try {
         await authorsDal.delAuthors(req.params.id)
-        res.redirect('/authors/')
+        res.redirect('/authors')
     } catch{
         res.render('503')
     }

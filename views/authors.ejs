@@ -1,27 +1,30 @@
 <html lang="en">
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
     <body>
         <div class>
             <form action="/authors" method="POST">
-                <b>authors: </b></br> 
+                <b>Authors: </b></br> 
             <% if (authors.length > 0) { %>
                 <% authors.forEach(authors => { %>
                     <b><%= authors.fn %> <%= authors.ln %></b>
-                    <a href="/authors/<%=authors._id%>/edit?fn=<%=authors.fn%>&ln=<%=authors.ln%>">edit</a>
-                    <a href="/authors/<%=authors._id%>/delete?fn=<%=authors.fn%>&ln=<%=authors.ln%>">delete</a>
-                    <a href="/authors/<%=authors._id%>/replace?fn=<%=authors.fn%>&ln=<%=authors.ln%>">replace</a></br> 
+                    <a href="/authors/<%=authors._id%>/edit?fn=<%=authors.fn%>&ln=<%=authors.ln%>">Edit</a>
+                    <a href="/authors/<%=authors._id%>/delete?fn=<%=authors.fn%>&ln=<%=authors.ln%>">Delete</a>
+                    <a href="/authors/<%=authors._id%>/replace?fn=<%=authors.fn%>&ln=<%=authors.ln%>">Replace</a></br> 
                     <% }) %>
             <% } %>
             <br>
-            <label>Add author</label>
+            <label>Add Author</label>
             <br>
 
             <label>First name:
                 <input type="text" id="fn" name="fn" value="<%= locals.fn  %>" required>
             </label><br>
-            <label>Last name:
+            <label>Last Name:
                 <input type="text" id="ln" name="ln" value="<%= locals.ln  %>" required>
             </label>
             <br>
+            <br>
             <button>POST</button>
+            <%- include('./partials/navi.ejs') %>
     </body>
 </html>
