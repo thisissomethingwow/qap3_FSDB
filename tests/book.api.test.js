@@ -43,7 +43,7 @@ describe('Auth Functions', () => {
     });
 
     test('addBooks should add a new book', async () => {
-        const mockResult = { rows: [] }; // Typically, INSERT returns an empty result
+        const mockResult = { rows: [] }; 
         dal.query.mockImplementation((sql, params, callback) => callback(null, mockResult));
         
         const result = await addBooks('book', 'cool');
