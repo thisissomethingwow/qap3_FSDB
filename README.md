@@ -1,4 +1,4 @@
-# This is the Fullstack dfffsfDatabase QAP:
+# This is the Fullstack and Database QAP:
 
 To start you need to change the pool in auth.js that's in services, then you run the SQL that is in sercices/SQL in PGAdmin. <br>
 Then you run this to get node_modules:
